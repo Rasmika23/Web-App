@@ -6,6 +6,7 @@ import Home from './pages/Home/Home'
 import { PlaceOrder } from './pages/PlaceOrder/PlaceOrder'
 import { Footer } from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
+import Cart from './pages/Cart/Cart'
 
 const App = () => {
 
@@ -18,7 +19,7 @@ const App = () => {
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/cart' element={<Home />}></Route> {/* SHOULD CHANGE THIS */}
+          <Route path='/cart' element={<Cart />}></Route>
           <Route path='/order' element={<PlaceOrder />}></Route>
         </Routes>
       </div>
