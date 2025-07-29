@@ -1,0 +1,30 @@
+### Add Food (with image upload)
+POST http://localhost:4000/api/food/add
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="name"
+
+Normal Bun
+
+--MyBoundary
+Content-Disposition: form-data; name="description"
+
+Delicious roll
+
+--MyBoundary
+Content-Disposition: form-data; name="price"
+
+100
+
+--MyBoundary
+Content-Disposition: form-data; name="category"
+
+Cake
+
+--MyBoundary
+Content-Disposition: form-data; name="image"; filename="food_3.png"
+Content-Type: image/jpeg
+
+< ../frontend/src/assets/food_3.png
+--MyBoundary--
