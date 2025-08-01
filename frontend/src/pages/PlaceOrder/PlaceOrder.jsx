@@ -49,7 +49,7 @@ export const PlaceOrder = () => {
                     </div>
         
                 </div>
-                <button onClick={()=>navigate('/order')}>Proceed To Checkout</button>
+                <button onClick={()=>navigate('/order')}>PROCEED TO PAYMENT</button>
             </div>
       </div>
     </form>
