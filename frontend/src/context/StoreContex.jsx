@@ -6,8 +6,9 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-   // const url = "http://localhost:4000";
-    const url = "https://web-app-production-7ad5.up.railway.app";
+    // const url = "http://localhost:4000";
+    // const url = "https://web-app-production-7ad5.up.railway.app";
+    const url = "https://tastio-backend-0nbh.onrender.com";
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([])
 
