@@ -9,11 +9,16 @@ const StoreContextProvider = (props) => {
    // const url = "http://localhost:4000";
     const url = "https://web-app-production-7ad5.up.railway.app";
     const [token, setToken] = useState("")
-
     const [food_list, setFoodList] = useState([])
 
+    // Add debugging
+    console.log("Context cartItems:", cartItems);
+
     const addToCart = async (itemId) => {
-        if (!cartItems[itemId]) {
+        // Safety check to ensure cartItems is defined
+        const safeCartItems = cartItems || {};
+        
+        if (!safeCartItems[itemId]) {
             setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
         }
         else {
@@ -35,15 +40,16 @@ const StoreContextProvider = (props) => {
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for (const item in cartItems) {
-
-            if (cartItems[item] > 0) {
+        // Safety check to ensure cartItems is defined
+        const safeCartItems = cartItems || {};
+        
+        for (const item in safeCartItems) {
+            if (safeCartItems[item] > 0) {
                 let itemInfo = food_list.find((product) => product._id === item);
                 if(itemInfo){
-                    totalAmount += itemInfo.price * cartItems[item];
+                    totalAmount += itemInfo.price * safeCartItems[item];
                 }
             }
-
         }
 
         return totalAmount;
@@ -55,8 +61,13 @@ const StoreContextProvider = (props) => {
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
-        setCartItems(response.data.cartData);
+        try {
+            const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
+            setCartItems(response.data.cartData || {});
+        } catch (error) {
+            console.log("Error loading cart data:", error);
+            setCartItems({});
+        }
     }
 
     useEffect(() => {
@@ -72,16 +83,18 @@ const StoreContextProvider = (props) => {
     }, [])
 
     const contextValue = {
-        food_list,
-        cartItems,
+        food_list: food_list || [],
+        cartItems: cartItems || {},
         setCartItems,
         addToCart,
         removeFromCart,
         getTotalCartAmount,
         url,
-        token,
+        token: token || "",
         setToken
     }
+
+    console.log("Providing context value:", contextValue);
 
     return (
         <StoreContext.Provider value={contextValue}>

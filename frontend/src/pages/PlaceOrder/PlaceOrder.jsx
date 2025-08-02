@@ -30,10 +30,14 @@ export const PlaceOrder = () => {
   const placeOrder = async (event) => {
     event.preventDefault();
     let orderItems = [];
+    
+    // Safety check to ensure cartItems is defined
+    const safeCartItems = cartItems || {};
+    
     food_list.map((item)=>{
-      if(cartItems[item._id]>0){
+      if(safeCartItems[item._id]>0){
         let itemInfo = item;
-        itemInfo["quantity"] = cartItems[item._id];
+        itemInfo["quantity"] = safeCartItems[item._id];
         orderItems.push(itemInfo)
       }
     })

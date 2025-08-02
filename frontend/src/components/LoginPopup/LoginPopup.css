@@ -73,3 +73,16 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.forgot-password-link{
+    color: tomato;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: underline;
+}
+
+.forgot-password-link:hover{
+    color: #ff4500;
+}
