@@ -9,6 +9,9 @@ const Cart = () => {
 
     const navigate = useNavigate();
 
+    // Safety check to ensure cartItems is defined
+    const safeCartItems = cartItems || {};
+
   return (
     <div className='cart'>
         <div className='cart-items'>
@@ -23,16 +26,16 @@ const Cart = () => {
             <br/>
 
             <hr></hr>
-            {food_list.map((item, index)=>{
-                if(cartItems[item._id]>0){
+            {food_list.map((item)=>{
+                if(safeCartItems[item._id]>0){
                     return(
                         <div>
                             <div className='cart-items-title cart-items-item'>
                                 <img src={url+"/images/"+item.image} alt='' />
                                 <p>{item.name}</p>
                                 <p>${item.price}</p>
-                                <p>{cartItems[item._id]}</p>
-                                <p>${item.price*cartItems[item._id]}</p>
+                                <p>{safeCartItems[item._id]}</p>
+                                <p>${item.price*safeCartItems[item._id]}</p>
                                 <p onClick={()=>removeFromCart(item._id)} className='cross'>x</p>
 
                             </div>
