@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContex'
 import axios from "axios"
 
-const LoginPopup = ({setShowLogin}) => {
+const LoginPopup = ({setShowLogin, setShowForgotPassword}) => {
 
     const {url, setToken} = useContext(StoreContext);
 
@@ -68,6 +68,15 @@ const LoginPopup = ({setShowLogin}) => {
 
                 
             </div>
+
+            {currState === "Login" && (
+                <p className="forgot-password-link" onClick={() => {
+                    setShowLogin(false);
+                    setShowForgotPassword(true);
+                }}>
+                    Forgot Password?
+                </p>
+            )}
 
             <button type='submit'>{currState==="Signup"?"Create account":"Login"}</button>
 
