@@ -9,7 +9,8 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
 
-  const url = "http://localhost:4000"
+  //const url = "http://localhost:4000"
+  const url = "https://web-app-production-7ad5.up.railway.app/"
 
   return (
     <div>
