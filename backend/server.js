@@ -13,15 +13,12 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
-
 //middleware
 app.use(express.json());
 app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "http://localhost:3000", 
-        process.env.FRONTEND_URL
-    ],
+
+    origin : 'https://tastio-frontend.netlify.app',
+
     credentials: true
 }))
 
@@ -39,7 +36,7 @@ app.get("/",(req,res)=>{
     res.send("API Working")
 })
 
-app.listen(port,()=>{
+app.listen(port,'0.0.0.0',()=>{
     console.log(`Server Started on http:/localhost:${port}`)
 })
 
