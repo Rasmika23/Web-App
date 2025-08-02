@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken"   // For Authentication
 import bycryt from "bcrypt"   // For password encryption
 import validator from "validator"
 import { response } from "express";
+import crypto from "crypto";
+import 
 
 
 //Login user
