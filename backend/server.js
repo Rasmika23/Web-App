@@ -16,7 +16,7 @@ const port = process.env.PORT || 4000;
 //middleware
 app.use(express.json());
 app.use(cors({
-    origin : 'https://tastio-frontend.netlify.app/',
+    origin : 'https://tastio-frontend.netlify.app',
     credentials: true
 }))
 
