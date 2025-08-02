@@ -16,7 +16,12 @@ const port = process.env.PORT || 4000;
 //middleware
 app.use(express.json());
 app.use(cors({
-    origin : 'https://tastio-frontend.netlify.app',
+    origin: [
+        'https://tastio-frontend.netlify.app',
+        'http://localhost:5173',
+        'http://localhost:3000',
+        process.env.FRONTEND_URL
+    ],
     credentials: true
 }))
 
@@ -32,6 +37,14 @@ app.use("/api/order",orderRouter)
 
 app.get("/",(req,res)=>{
     res.send("API Working")
+})
+
+app.get("/health",(req,res)=>{
+    res.status(200).json({ 
+        status: 'OK', 
+        timestamp: new Date().toISOString(),
+        cors: 'Enabled for multiple origins'
+    });
 })
 
 app.listen(port,'0.0.0.0',()=>{
