@@ -14,4 +14,6 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'http://localhost:4000'
+export const url = "https://web-app-production-7ad5.up.railway.app/"
+
+//http://localhost:4000
