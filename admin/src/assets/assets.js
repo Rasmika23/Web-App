@@ -5,7 +5,8 @@ import profile_image from './profile_image.png'
 import upload_area from './upload_area.png'
 import parcel_icon from './parcel_icon.png'
 
-export const url = "https://web-app-production-7ad5.up.railway.app/"
+//export const url = "https://web-app-production-7ad5.up.railway.app/"
+export const url = "https://tastio-backend-0nbh.onrender.com"
 export const currency = "Rs"
 
 export const assets ={

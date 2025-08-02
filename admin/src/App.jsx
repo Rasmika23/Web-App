@@ -10,7 +10,8 @@ import { ToastContainer } from 'react-toastify';
 const App = () => {
 
   //const url = "http://localhost:4000"
-  const url = "https://web-app-production-7ad5.up.railway.app/"
+  //const url = "https://web-app-production-7ad5.up.railway.app/"
+  const url = "https://tastio-backend-0nbh.onrender.com"
 
   return (
     <div>
