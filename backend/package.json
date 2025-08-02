@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
+    "build": "echo 'Build completed'",
     "server": "nodemon server.js",
     "test": "jest",
     "test:watch": "jest --watch",
