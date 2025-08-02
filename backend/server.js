@@ -17,7 +17,7 @@ const port = process.env.PORT || 4000;
 app.use(express.json());
 app.use(cors({
     origin: [
-        'https://tastio-frontend.netlify.app',
+        'https://tastiolk.netlify.app',
         'http://localhost:5173',
         'http://localhost:3000',
         process.env.FRONTEND_URL
