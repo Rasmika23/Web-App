@@ -1,13 +1,23 @@
-.header{
+.header {
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size: contain;
     position: relative;
-
+    overflow: hidden;
 }
 
-.header-content{
+/* Background video styles */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    border-radius: 30px;
+}
+
+.header-content {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -17,49 +27,60 @@
     bottom: 10%;
     left: 6vw;
     animation: fadeIn 3s;
-
+    z-index: 1; /* Ensure content is above the video */
 }
 
-.header-content h2{
+.header-content h2 {
     font-weight: 500;
     color: white;
-    font-size: max(4.5vw,22px);
+    font-size: max(4.5vw, 22px);
 }
 
-.header-content p{
+.header-content p {
     color: white;
     font-size: 1vw;
 }
 
-.header-content button{
+.header-content button {
     border: none;
     color: #747474;
     font-weight: 500;
     padding: 1vw 2.3vw;
     background-color: white;
-    font-size: max(1vw,13px);
+    font-size: max(1vw, 13px);
     border-radius: 50px;
 }
 
-
-@media (max-width:1050px){
-
-    .header-content{
+@media (max-width: 1050px) {
+    .header-content {
         max-width: 45%;
     }
 }
 
-@media (max-width:750px){
-
-    .header-content{
+@media (max-width: 750px) {
+    .header-content {
         max-width: 65%;
     }
 
-    .header-content p{
+    .header-content p {
         display: none;
     }
 
-    .header-content button{
+    .header-content button {
         padding: 2vw 4vw;
     }
+}
+@keyframes bounceFade {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.dynamic-text {
+  animation: bounceFade 2s ease-in-out infinite;
 }
