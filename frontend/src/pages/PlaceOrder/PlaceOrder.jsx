@@ -104,12 +104,12 @@ export const PlaceOrder = () => {
                     <hr/>
                     <div className="cart-total-details">
                         <p>Delivery Fee</p>
-                        <p>LKR{getTotalCartAmount()===0?0:2}</p>
+                        <p>LKR{getTotalCartAmount()===0?0:200}</p>
                     </div>
                     <hr/>
                     <div className="cart-total-details">
                         <b>Total</b>
-                        <b>LKR{getTotalCartAmount()===0?0:getTotalCartAmount()+150}</b>
+                        <b>LKR{getTotalCartAmount()===0?0:getTotalCartAmount()+200}</b>
                     </div>
         
                 </div>
