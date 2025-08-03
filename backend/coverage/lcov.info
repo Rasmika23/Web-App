@@ -6,7 +6,11 @@ FN:46,(anonymous_2)
 FNF:3
 FNH:3
 FNDA:3,(anonymous_0)
+<<<<<<< HEAD
 FNDA:3,(anonymous_1)
+=======
+FNDA:1,(anonymous_1)
+>>>>>>> test-coverage
 FNDA:2,(anonymous_2)
 DA:5,1
 DA:6,3
@@ -20,6 +24,7 @@ DA:16,2
 DA:18,1
 DA:19,1
 DA:27,1
+<<<<<<< HEAD
 DA:28,3
 DA:29,3
 DA:30,2
@@ -29,6 +34,17 @@ DA:34,2
 DA:35,2
 DA:37,1
 DA:38,1
+=======
+DA:28,1
+DA:29,1
+DA:30,1
+DA:31,1
+DA:32,1
+DA:34,1
+DA:35,1
+DA:37,0
+DA:38,0
+>>>>>>> test-coverage
 DA:46,1
 DA:47,2
 DA:48,2
@@ -37,6 +53,7 @@ DA:50,1
 DA:52,1
 DA:53,1
 LF:28
+<<<<<<< HEAD
 LH:28
 BRDA:9,0,0,1
 BRDA:9,0,1,1
@@ -44,6 +61,15 @@ BRDA:31,1,0,1
 BRDA:31,1,1,1
 BRF:4
 BRH:4
+=======
+LH:26
+BRDA:9,0,0,1
+BRDA:9,0,1,1
+BRDA:31,1,0,1
+BRDA:31,1,1,0
+BRF:4
+BRH:3
+>>>>>>> test-coverage
 end_of_record
 TN:
 SF:controllers\foodController.js
@@ -52,11 +78,19 @@ FN:34,(anonymous_1)
 FN:47,(anonymous_2)
 FN:51,(anonymous_3)
 FNF:4
+<<<<<<< HEAD
 FNH:4
 FNDA:2,(anonymous_0)
 FNDA:2,(anonymous_1)
 FNDA:2,(anonymous_2)
 FNDA:1,(anonymous_3)
+=======
+FNH:3
+FNDA:2,(anonymous_0)
+FNDA:2,(anonymous_1)
+FNDA:2,(anonymous_2)
+FNDA:0,(anonymous_3)
+>>>>>>> test-coverage
 DA:8,1
 DA:10,2
 DA:12,2
@@ -93,6 +127,7 @@ FN:80,(anonymous_3)
 FN:91,(anonymous_4)
 FN:102,(anonymous_5)
 FNF:6
+<<<<<<< HEAD
 FNH:6
 FNDA:2,(anonymous_0)
 FNDA:2,(anonymous_1)
@@ -147,6 +182,62 @@ BRDA:65,0,0,2
 BRDA:65,0,1,1
 BRF:2
 BRH:2
+=======
+FNH:2
+FNDA:0,(anonymous_0)
+FNDA:0,(anonymous_1)
+FNDA:1,(anonymous_2)
+FNDA:1,(anonymous_3)
+FNDA:0,(anonymous_4)
+FNDA:0,(anonymous_5)
+DA:6,1
+DA:9,1
+DA:11,0
+DA:13,0
+DA:14,0
+DA:20,0
+DA:21,0
+DA:23,0
+DA:34,0
+DA:45,0
+DA:52,0
+DA:55,0
+DA:56,0
+DA:61,1
+DA:62,1
+DA:64,1
+DA:65,1
+DA:66,1
+DA:67,1
+DA:70,0
+DA:71,0
+DA:74,0
+DA:75,0
+DA:80,1
+DA:81,1
+DA:82,1
+DA:83,1
+DA:85,0
+DA:86,0
+DA:91,1
+DA:92,0
+DA:93,0
+DA:94,0
+DA:96,0
+DA:97,0
+DA:102,1
+DA:103,0
+DA:104,0
+DA:105,0
+DA:107,0
+DA:108,0
+LF:41
+LH:14
+BRDA:65,0,0,1
+BRDA:65,0,1,0
+BRF:2
+BRH:1
+>>>>>>> test-coverage
 end_of_record
 TN:
 SF:controllers\userController.js
@@ -155,6 +246,7 @@ FN:32,(anonymous_1)
 FN:38,(anonymous_2)
 FNF:3
 FNH:3
+<<<<<<< HEAD
 FNDA:4,(anonymous_0)
 FNDA:2,(anonymous_1)
 FNDA:5,(anonymous_2)
@@ -162,6 +254,15 @@ DA:10,1
 DA:11,4
 DA:12,4
 DA:13,4
+=======
+FNDA:3,(anonymous_0)
+FNDA:2,(anonymous_1)
+FNDA:4,(anonymous_2)
+DA:10,1
+DA:11,3
+DA:12,3
+DA:13,3
+>>>>>>> test-coverage
 DA:14,3
 DA:15,1
 DA:17,2
@@ -169,6 +270,7 @@ DA:19,2
 DA:20,1
 DA:23,1
 DA:24,1
+<<<<<<< HEAD
 DA:27,1
 DA:28,1
 DA:32,1
@@ -177,6 +279,16 @@ DA:38,1
 DA:39,5
 DA:40,5
 DA:42,5
+=======
+DA:27,0
+DA:28,0
+DA:32,1
+DA:33,2
+DA:38,1
+DA:39,4
+DA:40,4
+DA:42,4
+>>>>>>> test-coverage
 DA:43,4
 DA:44,1
 DA:48,3
@@ -189,10 +301,17 @@ DA:60,1
 DA:66,1
 DA:67,1
 DA:68,1
+<<<<<<< HEAD
 DA:71,1
 DA:72,1
 LF:33
 LH:33
+=======
+DA:71,0
+DA:72,0
+LF:33
+LH:29
+>>>>>>> test-coverage
 BRDA:14,0,0,1
 BRDA:14,0,1,2
 BRDA:19,1,0,1
@@ -211,6 +330,7 @@ SF:middleware\auth.js
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
+<<<<<<< HEAD
 FNDA:4,(anonymous_0)
 DA:4,1
 DA:6,4
@@ -226,6 +346,23 @@ LF:10
 LH:10
 BRDA:7,0,0,1
 BRDA:7,0,1,3
+=======
+FNDA:3,(anonymous_0)
+DA:4,1
+DA:6,3
+DA:7,3
+DA:8,1
+DA:12,2
+DA:13,2
+DA:14,1
+DA:15,1
+DA:17,1
+DA:18,1
+LF:10
+LH:10
+BRDA:7,0,0,1
+BRDA:7,0,1,2
+>>>>>>> test-coverage
 BRF:2
 BRH:2
 end_of_record
@@ -268,6 +405,7 @@ BRDA:14,0,1,3
 BRF:2
 BRH:2
 end_of_record
+<<<<<<< HEAD
 TN:
 SF:routes\cartRoute.js
 FNF:0
@@ -327,3 +465,5 @@ LH:0
 BRF:0
 BRH:0
 end_of_record
+=======
+>>>>>>> test-coverage

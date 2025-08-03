@@ -1,0 +1,113 @@
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      operationId: loginUser
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas.yaml#/LoginRequest'
+      responses:
+        '200':
+          $ref: '../components/responses.yaml#/LoginSuccess'
+        '401':
+          $ref: '../components/responses.yaml#/Unauthorized'
+  
+  /auth/register:
+    post:
+      summary: User registration
+      operationId: registerUser
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas.yaml#/RegisterRequest'
+      responses:
+        '201':
+          $ref: '../components/responses.yaml#/RegistrationSuccess'
+        '400':
+          $ref: '../components/responses.yaml#/BadRequest'
+
+  /users:
+    get:
+      summary: Get all users
+      operationId: getAllUsers
+      tags:
+        - users
+      responses:
+        '200':
+          $ref: '../components/responses.yaml#/UserList'
+        '500':
+          $ref: '../components/responses.yaml#/ServerError'
+
+    post:
+      summary: Create a new user
+      operationId: createUser
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas.yaml#/UserRequest'
+      responses:
+        '201':
+          $ref: '../components/responses.yaml#/UserCreated'
+        '400':
+          $ref: '../components/responses.yaml#/BadRequest'
+
+  /users/{userId}:
+    get:
+      summary: Get a user by ID
+      operationId: getUserById
+      tags:
+        - users
+      parameters:
+        - $ref: '../components/parameters.yaml#/userId'
+      responses:
+        '200':
+          $ref: '../components/responses.yaml#/UserDetail'
+        '404':
+          $ref: '../components/responses.yaml#/NotFound'
+
+    put:
+      summary: Update a user by ID
+      operationId: updateUser
+      tags:
+        - users
+      parameters:
+        - $ref: '../components/parameters.yaml#/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas.yaml#/UserUpdateRequest'
+      responses:
+        '200':
+          $ref: '../components/responses.yaml#/UserUpdated'
+        '400':
+          $ref: '../components/responses.yaml#/BadRequest'
+        '404':
+          $ref: '../components/responses.yaml#/NotFound'
+
+    delete:
+      summary: Delete a user by ID
+      operationId: deleteUser
+      tags:
+        - users
+      parameters:
+        - $ref: '../components/parameters.yaml#/userId'
+      responses:
+        '204':
+          description: User deleted successfully
+        '404':
+          $ref: '../components/responses.yaml#/NotFound'

@@ -47,6 +47,10 @@
     background-color: grey;
     border: none;
 }
+.footer-img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}
 
 
 @media (max-width:750px){

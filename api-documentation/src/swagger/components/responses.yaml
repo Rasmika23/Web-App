@@ -1,0 +1,41 @@
+responses:
+  NotFound:
+    description: The specified resource was not found.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Resource not found"
+  Unauthorized:
+    description: Authentication failed or user does not have permissions for the requested operation.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Unauthorized access"
+  BadRequest:
+    description: The request was invalid or cannot be served.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Invalid request parameters"
+  Success:
+    description: The request was successful.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Operation completed successfully"

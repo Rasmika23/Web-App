@@ -1,0 +1,30 @@
+paths:
+  /auth/login:
+    post:
+      summary: User Login
+      description: Authenticates a user and returns a JWT token.
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas.yaml#/LoginRequest'
+      responses:
+        '200':
+          $ref: '../components/responses.yaml#/LoginSuccess'
+        '401':
+          $ref: '../components/responses.yaml#/Unauthorized'
+        '400':
+          $ref: '../components/responses.yaml#/BadRequest'
+
+  /auth/logout:
+    post:
+      summary: User Logout
+      description: Logs out the user and invalidates the JWT token.
+      operationId: logoutUser
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '../components/responses.yaml#/Unauthorized'

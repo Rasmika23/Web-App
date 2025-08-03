@@ -1,0 +1,84 @@
+users:
+  get:
+    summary: Retrieve a list of users
+    operationId: getUsers
+    tags:
+      - Users
+    responses:
+      '200':
+        $ref: '../components/responses.yaml#/UserListResponse'
+      '500':
+        $ref: '../components/responses.yaml#/ServerErrorResponse'
+
+  post:
+    summary: Create a new user
+    operationId: createUser
+    tags:
+      - Users
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas.yaml#/User'
+    responses:
+      '201':
+        $ref: '../components/responses.yaml#/UserCreatedResponse'
+      '400':
+        $ref: '../components/responses.yaml#/BadRequestResponse'
+      '500':
+        $ref: '../components/responses.yaml#/ServerErrorResponse'
+
+user:
+  get:
+    summary: Retrieve a specific user by ID
+    operationId: getUserById
+    tags:
+      - Users
+    parameters:
+      - $ref: '../components/parameters.yaml#/userId'
+    responses:
+      '200':
+        $ref: '../components/responses.yaml#/UserResponse'
+      '404':
+        $ref: '../components/responses.yaml#/NotFoundResponse'
+      '500':
+        $ref: '../components/responses.yaml#/ServerErrorResponse'
+
+  put:
+    summary: Update an existing user
+    operationId: updateUser
+    tags:
+      - Users
+    parameters:
+      - $ref: '../components/parameters.yaml#/userId'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas.yaml#/User'
+    responses:
+      '200':
+        $ref: '../components/responses.yaml#/UserUpdatedResponse'
+      '400':
+        $ref: '../components/responses.yaml#/BadRequestResponse'
+      '404':
+        $ref: '../components/responses.yaml#/NotFoundResponse'
+      '500':
+        $ref: '../components/responses.yaml#/ServerErrorResponse'
+
+  delete:
+    summary: Delete a specific user by ID
+    operationId: deleteUser
+    tags:
+      - Users
+    parameters:
+      - $ref: '../components/parameters.yaml#/userId'
+    responses:
+      '204':
+        description: User deleted successfully
+      '404':
+        $ref: '../components/responses.yaml#/NotFoundResponse'
+      '500':
+        $ref: '../components/responses.yaml#/ServerErrorResponse'

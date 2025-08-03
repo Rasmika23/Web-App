@@ -1,0 +1,192 @@
+/api/order/place:
+  post:
+    tags:
+      - Order Management
+    summary: Place new order
+    description: Create a new order with Stripe payment integration
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - userId
+              - items
+              - amount
+              - address
+            properties:
+              userId:
+                type: string
+                example: "60d5ec49f1b2c72b8c8b4567"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    foodId: { type: string }
+                    quantity: { type: number }
+                    price: { type: number }
+                example: [{"foodId": "60d5ec49f1b2c72b8c8b4567", "quantity": 2, "price": 15.99}]
+              amount:
+                type: number
+                example: 25.50
+              address:
+                type: object
+                required: ['firstName', 'lastName', 'email', 'street', 'city', 'state', 'zipcode', 'country', 'phone']
+                properties:
+                  firstName: { type: string, example: "John" }
+                  lastName: { type: string, example: "Doe" }
+                  email: { type: string, example: "john@example.com" }
+                  street: { type: string, example: "123 Main St" }
+                  city: { type: string, example: "New York" }
+                  state: { type: string, example: "NY" }
+                  zipcode: { type: string, example: "10001" }
+                  country: { type: string, example: "USA" }
+                  phone: { type: string, example: "+1234567890" }
+    responses:
+      200:
+        description: Order placed successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                session_url:
+                  type: string
+                  example: "https://checkout.stripe.com/pay/cs_test_..."
+
+/api/order/verify:
+  post:
+    tags:
+      - Order Management
+    summary: Verify order payment
+    description: Verify Stripe payment status for an order
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - orderId
+              - success
+            properties:
+              orderId:
+                type: string
+                example: "60d5ec49f1b2c72b8c8b4567"
+              success:
+                type: string
+                enum: ["true", "false"]
+                example: "true"
+    responses:
+      200:
+        description: Payment verification result
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                message:
+                  type: string
+                  example: "Paid"
+
+/api/order/userorders:
+  post:
+    tags:
+      - Order Management
+    summary: Get user orders
+    description: Retrieve all orders for a specific user
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - userId
+            properties:
+              userId:
+                type: string
+                example: "60d5ec49f1b2c72b8c8b4567"
+    responses:
+      200:
+        description: User orders retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Order'
+
+/api/order/list:
+  get:
+    tags:
+      - Order Management
+    summary: Get all orders
+    description: Retrieve all orders for admin dashboard
+    security:
+      - bearerAuth: []
+    responses:
+      200:
+        description: All orders retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Order'
+
+/api/order/status:
+  post:
+    tags:
+      - Order Management
+    summary: Update order status
+    description: Update the status of an order (Admin only)
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - orderId
+              - status
+            properties:
+              orderId:
+                type: string
+                example: "60d5ec49f1b2c72b8c8b4567"
+              status:
+                type: string
+                enum: ["Food Processing", "Out for delivery", "Delivered"]
+                example: "Out for delivery"
+    responses:
+      200:
+        description: Order status updated successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Success'

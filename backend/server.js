@@ -6,6 +6,8 @@ import userRouter from "./routes/userRoute.js"
 import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
+import swaggerUi from "swagger-ui-express"
+import swaggerSpecs from "./swagger/config.js"
 
 
 //app config
@@ -28,6 +30,22 @@ app.use(cors({
 
 //db connection
 connectDB();
+
+// Swagger Documentation
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
+  explorer: true,
+  customCss: `
+    .swagger-ui .topbar { display: none }
+    .swagger-ui .info .title { color: #3b82f6; }
+  `,
+  customSiteTitle: "Food Delivery API Documentation",
+  swaggerOptions: {
+    persistAuthorization: true,
+    displayRequestDuration: true
+  }
+}))
+
 
 // api endpoints
 app.use("/api/food",foodRouter)

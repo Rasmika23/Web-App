@@ -1,0 +1,80 @@
+/api/user/register:
+  post:
+    tags:
+      - Authentication
+    summary: Register a new user
+    description: Create a new user account
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - name
+              - email
+              - password
+            properties:
+              name:
+                type: string
+                example: "John Doe"
+              email:
+                type: string
+                format: email
+                example: "john@example.com"
+              password:
+                type: string
+                minLength: 8
+                example: "password123"
+    responses:
+      200:
+        description: User registered successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                token:
+                  type: string
+                  example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+/api/user/login:
+  post:
+    tags:
+      - Authentication
+    summary: Login user
+    description: Authenticate user with email and password
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - email
+              - password
+            properties:
+              email:
+                type: string
+                format: email
+                example: "john@example.com"
+              password:
+                type: string
+                example: "password123"
+    responses:
+      200:
+        description: User logged in successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                token:
+                  type: string
+                  example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."

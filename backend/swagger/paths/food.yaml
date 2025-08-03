@@ -1,0 +1,93 @@
+/api/food/add:
+  post:
+    tags:
+      - Food Management
+    summary: Add new food item
+    description: Add a new food item with image upload (Admin only)
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            required:
+              - name
+              - description
+              - price
+              - category
+              - image
+            properties:
+              name:
+                type: string
+                example: "Margherita Pizza"
+              description:
+                type: string
+                example: "Classic pizza with tomato sauce and mozzarella"
+              price:
+                type: number
+                example: 15.99
+              category:
+                type: string
+                example: "Italian"
+              image:
+                type: string
+                format: binary
+    responses:
+      200:
+        description: Food added successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Success'
+
+/api/food/list:
+  get:
+    tags:
+      - Food Management
+    summary: Get all food items
+    description: Retrieve list of all available food items
+    responses:
+      200:
+        description: List of food items
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                data:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Food'
+
+/api/food/remove:
+  post:
+    tags:
+      - Food Management
+    summary: Remove food item
+    description: Remove a food item by ID (Admin only)
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                example: "60d5ec49f1b2c72b8c8b4567"
+    responses:
+      200:
+        description: Food removed successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Success'
