@@ -18,6 +18,7 @@ export const Footer = () => {
             
             <div className="footer-content-center">
                 <h2>Company</h2>
+                
                 <ul>
                     <li>Home</li>
                     <li>About Us</li>
@@ -29,8 +30,8 @@ export const Footer = () => {
             <div className="footer-content-right">
                 <h2>GET IN TOUCH</h2>
                 <ul>
-                    <li>011 011323</li>
-                    <li>tastio082@gmail.com</li>
+                    <li>011 0113234</li>
+                    <li>tastio@gmail.com</li>
                 </ul>
             </div>
         </div>

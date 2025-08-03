@@ -29,6 +29,8 @@
     list-style: none;
     margin-bottom: 10px;
     cursor: pointer;
+    
+
 }
 
 .footer-content-right h2, .footer-content-center h2{
@@ -61,3 +63,7 @@
     }
 }
 
+.footer-img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}
