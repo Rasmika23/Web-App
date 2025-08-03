@@ -1,0 +1,70 @@
+/* Home.css */
+.home-container {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Light theme */
+.home-container.light {
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* Dark theme */
+.home-container.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 999;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* Ensure html and body fill the screen */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme for body */
+body {
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* Dark theme for body */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+.home-container {
+  transition: color 0.3s ease;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: transparent; /* important */
+}
+
+.home-container.light {
+  color: #222;
+}
+
+.home-container.dark {
+  color: #f0f0f0;
+}

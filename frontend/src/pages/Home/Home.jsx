@@ -6,11 +6,20 @@ import { FoodDisplay } from '../../components/FoodDisplay/FoodDisplay'
 import AppDownload from '../../components/AppDownload/AppDownload'
 
 const Home = () => {
+  const [category, setCategory] = useState("All")
+  const [darkMode, setDarkMode] = useState(false)
 
-  const [category,setCategory] = useState("All")
+  const toggleTheme = () => {
+    setDarkMode(prev => !prev)
+    document.body.classList.toggle("dark-mode", !darkMode)
+  }
 
   return (
-    <div>
+    <div className={`home-container ${darkMode ? 'dark' : 'light'}`}>
+      <button className="theme-toggle-btn" onClick={toggleTheme}>
+        {darkMode ? ' Light Mode' : ' Dark Mode'}
+      </button>
+
       <Header />
       <ExploreMenu category={category} setCategory={setCategory} />
       <FoodDisplay category={category} />
@@ -20,3 +29,10 @@ const Home = () => {
 }
 
 export default Home
+const toggleTheme = () => {
+  setDarkMode(prev => {
+    document.body.classList.toggle("dark-mode", !prev);
+    return !prev;
+  });
+};
+
