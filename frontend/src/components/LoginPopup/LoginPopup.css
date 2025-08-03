@@ -52,7 +52,7 @@
     padding: 10px;
     border-radius: 4px;
     color: white;
-    background-color: tomato;
+    background-color: #208a8d;
     font-size: 15px;
     cursor: pointer;
 }
@@ -69,13 +69,13 @@
 }
 
 .login-popup p span{
-    color: tomato;
+    color: #208a8d;
     font-weight: 500;
     cursor: pointer;
 }
 
 .forgot-password-link{
-    color: tomato;
+    color: #208a8d;
     font-weight: 500;
     cursor: pointer;
     text-align: center;
@@ -84,5 +84,5 @@
 }
 
 .forgot-password-link:hover{
-    color: #ff4500;
+    color: #208a8d;
 }

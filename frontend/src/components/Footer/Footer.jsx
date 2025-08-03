@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="footer-content">
             <div className="footer-content-left">
                 <img src={assets.logo} alt='' />
-                <p>Hello</p>
+                <p>Tastio. is a food delivery service that connects you with your favorite foods.</p>
                 <div className="footer-social-icons">
                     <img src={assets.facebook_icon} alt="" />
                     <img src={assets.twitter_icon} alt="" />
@@ -29,8 +29,8 @@ export const Footer = () => {
             <div className="footer-content-right">
                 <h2>GET IN TOUCH</h2>
                 <ul>
-                    <li>011011323</li>
-                    <li>hellomf@gmail.com</li>
+                    <li>011 011323</li>
+                    <li>tastio082@gmail.com</li>
                 </ul>
             </div>
         </div>
