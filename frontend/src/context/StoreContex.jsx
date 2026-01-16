@@ -6,11 +6,11 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    // const url = "http://localhost:4000";
+    const url = "http://localhost:4000";
     // const url = "https://web-app-production-7ad5.up.railway.app";
-    const url = "https://tastio-backend-0nbh.onrender.com";
-    const [token, setToken] = useState("")
-    const [food_list, setFoodList] = useState([])
+    //const url = "https://tastio-backend-0nbh.onrender.com";
+    const [token, setToken] = useState("");
+    const [food_list, setFoodList] = useState([]);
 
     // Add debugging
     console.log("Context cartItems:", cartItems);
@@ -18,7 +18,7 @@ const StoreContextProvider = (props) => {
     const addToCart = async (itemId) => {
         // Safety check to ensure cartItems is defined
         const safeCartItems = cartItems || {};
-        
+
         if (!safeCartItems[itemId]) {
             setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
         }
@@ -26,7 +26,7 @@ const StoreContextProvider = (props) => {
             setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         }
         if (token) {
-            await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+            await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } })
         }
     }
 
@@ -35,7 +35,7 @@ const StoreContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
 
         if (token) {
-            await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+            await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } })
         }
     }
 
@@ -43,11 +43,11 @@ const StoreContextProvider = (props) => {
         let totalAmount = 0;
         // Safety check to ensure cartItems is defined
         const safeCartItems = cartItems || {};
-        
+
         for (const item in safeCartItems) {
             if (safeCartItems[item] > 0) {
                 let itemInfo = food_list.find((product) => product._id === item);
-                if(itemInfo){
+                if (itemInfo) {
                     totalAmount += itemInfo.price * safeCartItems[item];
                 }
             }
@@ -57,13 +57,21 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url + "/api/food/list");
-        setFoodList(response.data.data)
+        try {
+            const response = await axios.get(url + "/api/food/list");
+            if (response.data.success) {
+                setFoodList(response.data.data);
+            } else {
+                console.error("Error fetching food list:", response.data.message);
+            }
+        } catch (error) {
+            console.error("Network error fetching food list:", error);
+        }
     }
 
     const loadCartData = async (token) => {
         try {
-            const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
+            const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } });
             setCartItems(response.data.cartData || {});
         } catch (error) {
             console.log("Error loading cart data:", error);
