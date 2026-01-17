@@ -63,7 +63,13 @@ You will need to install dependencies for the backend, frontend, and admin panel
             cd admin 
             npm install
 
-⚡ 3. Running the Application
+ 🛠 3. Configure Environment Variables
+
+    Copy the .env.example file and rename it to .env.
+    Open the .env file and plug in your own MongoDB connection string and Stripe API keys.
+
+
+⚡ 4. Running the Application
 
 Open three separate terminals to run each service simultaneously. 📟
 
@@ -79,7 +85,7 @@ Open three separate terminals to run each service simultaneously. 📟
             cd admin 
             npm start
 
-🌐 4. Accessing the Project
+🌐 5. Accessing the Project
 
 The application should now be running at the following local addresses:
 
