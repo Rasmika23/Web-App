@@ -14,8 +14,8 @@
     align-items: start;
     gap: 1.5vw;
     max-width: 50%;
-    bottom: 10%;
-    left: 6vw;
+    bottom: 20%;
+    left: 3vw;
     animation: fadeIn 3s;
 
 }
@@ -23,7 +23,7 @@
 .header-content h2{
     font-weight: 500;
     color: white;
-    font-size: max(4.5vw,22px);
+    font-size: max(4vw,18px);
 }
 
 .header-content p{
