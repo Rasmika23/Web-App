@@ -87,4 +87,4 @@ The application should now be running at the following local addresses:
 
     ⚙️ Admin: http://localhost:5174
 
-    🔌 Backend: http://localhost:5000
+    🔌 Backend: http://localhost:4000
